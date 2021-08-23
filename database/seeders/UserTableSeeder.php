@@ -23,7 +23,8 @@ class UserTableSeeder extends Seeder
             'telefono' => '0981196007',
             'cedula' => '0944296730',
             'fecha_nacimiento' => '1998-02-17',
-            'codigo_ciudad' => 1998,
+            'ciudad_id' => 1,
+            'rol_id'=>1,
         ]);
     }
 }
