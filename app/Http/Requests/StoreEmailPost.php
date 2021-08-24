@@ -28,8 +28,8 @@ class StoreEmailPost extends FormRequest
             'destinatario'=>'required',
             
             'cuerpo'=>'required',
-            'user_id'=>'required',
-            'estado'=>'required',
+            // 'user_id'=>'required',
+            // 'estado'=>'required',
         ];
     }
 }
