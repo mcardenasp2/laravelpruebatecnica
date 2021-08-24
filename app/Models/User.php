@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -25,7 +26,8 @@ class User extends Authenticatable
         'telefono',
         'cedula',
         'fecha_nacimiento',
-        'codigo_ciudad',
+        'ciudad_id',
+        'rol_id',
     ];
 
     /**
@@ -47,14 +49,29 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getFechaNacimientoAttribute($value){
+    // public function getFechaNacimientoAttribute($value){
         // return $value->format('Y');
-        return  (new Carbon($value))->age;
+        // return  (new Carbon($value))->age;
+    // }
+
+    public function getEdadAttribute(){
+ 
+        return  (new Carbon($this->attributes['fecha_nacimiento']))->age;
+    }
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password']=Hash::make($value);
     }
 
     
 
     public function rol(){
         return $this->belongsTo(Rol::class);
+    }
+
+    public function city(){
+        return $this->belongsTo(City::class, 'ciudad_id');
+        // return $this->belongsTo(Supplier::class, 'supplier_ids', 'id');
+        
     }
 }

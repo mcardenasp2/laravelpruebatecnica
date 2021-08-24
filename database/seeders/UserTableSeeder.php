@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
         User::create([
             'name' => 'Marco Cardenas',
             'email' => 'pepito@unemi.edu.ec',
-            'password' => Hash::make('Admin123'),
+            'password' => 'Admin123',
             'telefono' => '0981196007',
             'cedula' => '0944296730',
             'fecha_nacimiento' => '1998-02-17',

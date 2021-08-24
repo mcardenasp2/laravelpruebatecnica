@@ -26,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('dashboard/user',UserController::class);
 
 Route::get('dashboard/provinces/{id}/',[UserController::class,'provincias'])->name('provincias.show');
+Route::get('dashboard/ciudades/{id}/',[UserController::class,'ciudades'])->name('ciudades.show');

@@ -19,7 +19,9 @@
                   <th>Rol</th>
                   <th>Email</th>
                   <th>Edad</th>
-                  <th>Cedula</th>
+                  <th>Cédula</th>
+                  <th>Téfono</th>
+                  <th>Ciudad</th>
                   <th>Action</th>
               </tr>
           </thead>
@@ -30,15 +32,23 @@
                   <td>{{$user->name}}</td>
                   <td>{{$user->rol->name}}</td>
                   <td>{{$user->email}}</td>
-                  <td>{{$user->fecha_nacimiento}}</td>
+                  <td>{{$user->edad}}</td>
                   <td>{{$user->cedula}}</td>
+                  <td>{{$user->telefono}}</td>
+                  <td>{{$user->city->name}}</td>
                   
            
                   <td>
-                    <a class="btn btn-primary" href="#" role="button">Ver</a>
+                    <a class="btn btn-primary" href="{{route('user.show',$user->id)}}" role="button">Ver</a>
                     <a class="btn btn-warning" href="{{route('user.edit',$user->id)}}" role="button">Editar</a>
                     {{-- @csrf --}}
-                    <a class="btn btn-danger btndelete" href="#" role="button"  >Eliminar</a>
+                    <form id="formDelete" method="POST" action="{{route('user.destroy', $user->id)}}">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+
+                    {{-- <a class="btn btn-danger btndelete" href="#" role="button"  >Eliminar</a> --}}
                     {{-- <a class="btn btn-danger btndelete" id="btndelete'" href="#" role="button"  >Eliminar</a> --}}
                   </td>
               </tr>
@@ -71,4 +81,14 @@
 
 
 
+@endsection
+
+
+@section('script')
+
+<script >
+
+    $('#example').DataTable();
+</script>
+    
 @endsection
