@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         User::truncate();
         User::create([
             'name' => 'Marco Cardenas',
-            'email' => 'pepito@unemi.edu.ec',
+            'email' => 'marco.cardenas1702@gmail.com',
             'password' => 'Admin123',
             'telefono' => '0981196007',
             'cedula' => '0944296730',

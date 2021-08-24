@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\EmailController;
 use App\Http\Controllers\dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,9 @@ Route::resource('dashboard/user',UserController::class);
 
 Route::get('dashboard/provinces/{id}/',[UserController::class,'provincias'])->name('provincias.show');
 Route::get('dashboard/ciudades/{id}/',[UserController::class,'ciudades'])->name('ciudades.show');
+
+
+// Email
+Route::get('dashboard/email/',[EmailController::class,'index'])->name('email.index');
+Route::get('dashboard/email/create',[EmailController::class,'create'])->name('email.create');
+Route::post('dashboard/email/create',[EmailController::class,'store'])->name('email.store');

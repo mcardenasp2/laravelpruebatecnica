@@ -25,7 +25,7 @@ class StoreUserPost extends FormRequest
     {
         return [
             'name'=>'required|string|max:255',
-            'fecha_nacimiento'=>'required|after_or_equal:2003-01-01',
+            'fecha_nacimiento'=>'required|after:2003-01-01',
             
             'email'=>'required|string|email|max:255|unique:users',
             'password'=>'required|string|min:8|confirmed',

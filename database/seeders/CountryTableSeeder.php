@@ -16,7 +16,13 @@ class CountryTableSeeder extends Seeder
     {
         Country::truncate();
         Country::create([
-            'name' => 'Marco Cardenas',
+            'name' => 'Ecuador',
+        ]);
+        Country::create([
+            'name' => 'Colombia',
+        ]);
+        Country::create([
+            'name' => 'Perú',
         ]);
     }
 }

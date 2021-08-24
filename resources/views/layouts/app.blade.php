@@ -28,6 +28,12 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'MAILER S.A') }}
                 </a>
+
+                <a href="{{route('email.index')}}" class="btn btn-primary">Email</a>
+                
+                <a href="{{route('user.index')}}" class="btn btn-success">User</a>
+
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
